@@ -166,6 +166,22 @@ const invoices = [
     }
   ];
 
+  // serviceworker registration for PWA
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('./service-worker.js')
+        .then((registration) => {
+          console.log('ServiceWorker is registered:', registration);
+        })
+        .catch((error) => {
+          console.log('ServiceWorker registration has failed:', error);
+        });
+  
+    });
+  }
+
+
   const newButton = document.getElementById("newButton");
   const deleteButton = document.getElementById("deleteButton");
   const upButton = document.getElementById("upButton");
@@ -234,9 +250,9 @@ const invoices = [
       const Viscosityinput = document.createElement("input");
       const Quantityinput = document.createElement("input");
 
-      Densityinput.classList.add('w-50')
-      Viscosityinput.classList.add('w-50')
-      Quantityinput.classList.add('w-50')
+      Densityinput.classList.add('w-75')
+      Viscosityinput.classList.add('w-75')
+      Quantityinput.classList.add('w-75')
 
 
       ChemicalNameCell.classList.add('has-right-border');

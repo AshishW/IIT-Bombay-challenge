@@ -15,6 +15,8 @@ This document outlines the design approach and choices made in developing the dy
 ├── styles.css
 ├── bootstrap.min.css
 ├── bootstrap.bundle.min.js
+├── manifest.json
+├── service-worker.js
 └── assets
     ├── pencil-square.svg
     ├── trash3.svg
@@ -24,16 +26,15 @@ This document outlines the design approach and choices made in developing the dy
     ├── floppy-fill.svg
     ├── check-lg.svg
     └── UI.png
-
 ```
 
 ### Overall Architecture
 
-The application is built using HTML, CSS, and JavaScript, leveraging the Bootstrap framework for styling and modal components.  The data is stored in a JavaScript array (`invoices`) and manipulated using DOM manipulation techniques. Local storage is used to persist changes made to the table.
+The application is built using HTML, CSS, and JavaScript, leveraging the Bootstrap framework for styling and modal components.  The data is stored in a JavaScript array (`invoices`) and manipulated using DOM manipulation techniques. Local storage is used to persist changes made to the table.  The application is also implemented as a Progressive Web App (PWA).
 
 ### Data Management
 
-* **Data Structure:** The table data is stored in a JavaScript array of objects, where each object represents a row with given properties.
+* **Data Structure:** The table data is stored in a JavaScript array of objects (JSON format), where each object represents a row with given properties.
 * **Initial Data:** The `invoices` array is initialized with sample data.  This data is also deep-copied into `initialInvoices` to allow for resetting the table to its original state.
 * **Local Storage:** The `localStorage` API is used to persist table changes. The `saveButton` event listener saves the updated `invoices` array to local storage, and the `refreshButton` loads data from local storage if available, or defaults to `initialInvoices`.
 
@@ -52,3 +53,7 @@ The application is built using HTML, CSS, and JavaScript, leveraging the Bootstr
 * **Bootstrap:** Bootstrap is used for styling and layout, providing a responsive and visually appealing interface.  Bootstrap modals are used for adding and editing rows.
 * **Button States:** The `updateButtonStates` function dynamically enables/disables buttons (delete, move up, move down, edit) based on whether a row is selected and its position in the table.
 * **Selected Rows:** The selected row is highlighted using the `selected` class.
+
+### PWA Implementation
+
+The application is built as a Progressive Web App (PWA) to provide offline capabilities and improved performance. A service worker (`service-worker.js`) is registered to cache static assets and handle offline requests.  The `manifest.json` file provides metadata for the PWA, allowing it to be installed on the user's device.  The service worker caches critical assets, ensuring the application remains functional even when offline.  The user can install the app to their home screen for quick access.
