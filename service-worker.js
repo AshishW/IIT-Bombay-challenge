@@ -5,19 +5,20 @@ self.addEventListener('install', (event) => {
       .then((cache) => {
         console.log('Opened cache');
         return cache.addAll([
-            '/',
-            '/index.html',
-            '/styles.css',
-            '/index.js',
-            '/manifest.json',
-            '/assets/arrow-clockwise.svg',
-            '/assets/arrow-down.svg',
-            '/assets/arrow-up.svg',
-            '/assets/check-lg.svg',
-            '/assets/floppy-fill.svg',
-            '/assets/pencil-square.svg',
-            '/assets/trash3.svg',
-            '/bootstrap.min.css'
+            './',
+            './index.html',
+            './styles.css',
+            './index.js',
+            './manifest.json',
+            './assets/arrow-clockwise.svg',
+            './assets/arrow-down.svg',
+            './assets/arrow-up.svg',
+            './assets/check-lg.svg',
+            './assets/floppy-fill.svg',
+            './assets/pencil-square.svg',
+            './assets/trash3.svg',
+            './bootstrap.min.css',
+            './bootstrap.bundle.min.js'
           ]);
       })
       .catch((error) => {
