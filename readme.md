@@ -1,8 +1,31 @@
 # Documentation
 
 ## Design Approach and Choices for Dynamic Table
+![User Interface](./assets/UI.png)
+
 
 This document outlines the design approach and choices made in developing the dynamic table interface.
+
+
+### Directory structure
+
+```
+├── index.html
+├── index.js
+├── styles.css
+├── bootstrap.min.css
+├── bootstrap.bundle.min.js
+└── assets
+    ├── pencil-square.svg
+    ├── trash3.svg
+    ├── arrow-up.svg
+    ├── arrow-down.svg
+    ├── arrow-clockwise.svg
+    ├── floppy-fill.svg
+    ├── check-lg.svg
+    └── UI.png
+
+```
 
 ### Overall Architecture
 
